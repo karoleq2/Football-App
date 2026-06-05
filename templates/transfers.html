@@ -1,0 +1,206 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@600&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <link href="/static/img/logo.png" rel="icon"/>
+      <title>Goalscorer - Football app with statistics!</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <a class="c-link" href="#">
+            <div class="c-logo">
+              <img src="/static/img/logo.png" alt="Logo" class="c-logo__img" style="width: 150px; height: 150px;" />
+            </div>
+          </a>
+          <nav class="c-nav">
+            <input id="dropdown" class="c-nav__toggle" type="checkbox" />
+            <div class="c-nav__content">
+              <ul class="c-list c-list--flex">
+                <li class="c-list__item">
+                  <a href="/" class="c-link c-link--list">Main</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="c-hero">
+          <div class="container">
+            <div class="c-hero__content">
+              <h1 class="heading heading--1 heading--light">
+                Transfers!
+              </h1>
+              <h4 class="heading heading--4 heading--blue">
+                All statistics about transfers in football.
+              </h4>
+              <a href="/transfers/top_10" class="c-button c-button--primary">
+                  Top 10 Transfers All Time
+                </a>
+
+            <div class="c-hero__img-holder">
+              <img
+                class="c-hero__img"
+                src="/static/img/dashboard4.png"
+                alt="Dashboard"
+                style="width: 500px; height: 300px;"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <form action="/get_transfer" method="GET" style="margin-bottom: 2rem;">
+            <input type="text" name="transfer_player_name" placeholder="Search player transfer..."/>
+            <button type="submit" class="c-button c-button--primary">Search</button>
+            <a href="/transfers" class="c-link" style="margin-left: 10px;">Clear Search</a>
+          </form>
+
+          <table>
+            <thead>
+            <tr>
+              <th>Player Name</th>
+              <th>From Club</th>
+              <th>To Club</th>
+              <th>Transfer Amount</th>
+              <th>Transfer Data</th>
+              <th>Transfer Season</th>
+              <th>Market Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for transfer in transfers %}
+            <tr>
+              <td>{{ transfer.player_name or "-" }}</td>
+              <td>{{ transfer.from_club_name or "-" }}</td>
+              <td>{{ transfer.to_club_name or "-" }}</td>
+              <td>
+                {% if transfer.transfer_fee %}
+                {% if transfer.transfer_fee >= 1000000 %}
+                ${{ transfer.transfer_fee / 1000000 | round(1) }}M
+                {% elif transfer.transfer_fee >= 1000 %}
+                ${{ transfer.transfer_fee / 1000 | round(0) }}K
+                {% else %}
+                ${{ transfer.transfer_fee }}
+                {% endif %}
+                {% else %}
+                -
+                {% endif %}
+              </td>
+              <td>{{ transfer.transfer_date or "-" }}</td>
+              <td>{{ transfer.transfer_season or "-" }}</td>
+              <td>
+                {% if transfer.market_value_in_eur %}
+                {% if transfer.market_value_in_eur >= 1000000 %}
+                ${{ transfer.market_value_in_eur / 1000000 | round(1) }}M
+                {% elif transfer.market_value_in_eur >= 1000 %}
+                ${{ transfer.market_value_in_eur / 1000 | round(0) }}K
+                {% else %}
+                ${{ transfer.market_value_in_eur }}
+                {% endif %}
+                {% else %}
+                -
+                {% endif %}
+              </td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="6" style="text-align: center; padding: 2rem; color: #808ab8;">No transfer found</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+          {% if not search_query %}
+          <div id="pagination" style="margin-top: 1.5rem; display: flex; gap: 0.5rem; align-items: center;">
+          {% if current_page > 1 %}
+          <a href="/transfers?page={{ current_page - 1 }}" class="c-button c-button--secondary"><- Previously</a>
+          {% endif %}
+
+          <span style="color: white; padding: 0 1rem;">Page {{ current_page }}</span>
+
+          {% if transfers|length == 50 %}
+          <a href="/transfers?page={{ current_page + 1 }}" class="c-button c-button--primary">Next -></a>
+          {% endif %}
+          </div>
+          {% endif %}
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="c-footer">
+          <div class="c-footer__box">
+            <a class="c-link" href="#">
+              <div class="c-logo">
+                <img src="/static/img/logo.png" alt="Logo" class="c-logo__img" />
+                <span class="c-logo__text c-logo__text--white">Goalscorer</span>
+              </div>
+            </a>
+            <p class="c-paragraph c-footer__text">
+              © 2026 Goalscorer, all rights reserved
+            </p>
+          </div>
+          <div class="c-footer__box">
+            <div class="c-footer__icons">
+              <a href="https://www.instagram.com/fankick_store/">
+                <img
+                  class="c-footer__icon"
+                  src="/static/img/instagram.svg"
+                  alt="Instagram"
+              /></a>
+              <a href="https://x.com/footballnews893?s=20">
+                <img
+                  class="c-footer__icon"
+                  src="/static/img/twitter.svg"
+                  alt="Twitter"
+                />
+              </a>
+              <a href="https://www.facebook.com/FlashscorePL">
+                <img
+                  class="c-footer__icon"
+                  src="/static/img/facebook.svg"
+                  alt="Facebook"
+              /></a>
+            </div>
+            <ul class="c-list c-list--flex c-list--align-right">
+              <li class="c-list__item c-list__item--small">
+                <a href="#" class="c-link c-link--list c-link--list-right"
+                  >Contact</a
+                >
+              </li>
+              <li class="c-list__item c-list__item--small">
+                <a href="#" class="c-link c-link--list c-link--list-right"
+                  >About us</a
+                >
+              </li>
+              <li class="c-list__item c-list__item--small">
+                <a href="#" class="c-link c-link--list c-link--list-right"
+                  >FAQ</a
+                >
+              </li>
+              <li class="c-list__item c-list__item--small">
+                <a href="#" class="c-link c-link--list c-link--list-right"
+                  >Support</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

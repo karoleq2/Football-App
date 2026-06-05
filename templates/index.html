@@ -1,0 +1,272 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@600&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <link href="/static/img/logo.png" rel="icon" />
+      <title>Goalscorer - Football app with statistics!</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <a class="c-link" href="#">
+            <div class="c-logo">
+              <img src="/static/img/logo.png" alt="Logo" class="c-logo__img" style="width: 150px; height: 150px;" />
+            </div>
+          </a>
+          <nav class="c-nav">
+            <input id="dropdown" class="c-nav__toggle" type="checkbox" />
+            <div class="c-nav__content">
+              <ul class="c-list c-list--flex">
+                <li class="c-list__item">
+                  <a href="/players" class="c-link c-link--list">Players</a>
+                </li>
+                <li class="c-list__item">
+                  <a href="/clubs" class="c-link c-link--list">Clubs</a>
+                </li>
+                <li class="c-list__item">
+                  <a href="/transfers" class="c-link c-link--list">Transfers</a>
+                </li>
+                <li class="c-list__item">
+                  <a href="/national_teams" class="c-link c-link--list">National Teams</a>
+                </li>
+                <li class="c-list__item">
+                  <a href="/games" class="c-link c-link--list">Games</a>
+                </li>
+                <li class="c-list__item">
+                  <a href="/appearances" class="c-link c-link--list">Appearances</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="c-hero">
+          <div class="container">
+            <div class="c-hero__content">
+              <h1 class="heading heading--1 heading--light">
+                Welcome to the Goalscorer!
+              </h1>
+              <h4 class="heading heading--4 heading--blue">
+                The ultimate football app with the largest collection of player statistics, matches, clubs and more!
+              </h4>
+
+            <div class="c-hero__img-holder">
+              <img
+                class="c-hero__img"
+                src="/static/img/dashboard1.png"
+                alt="Dashboard"
+                style="width: 500px; height: 350px;"
+              />
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section__title-wrapper">
+            <h2 class="heading heading--2">
+              Discover the world of football with football statistics
+            </h2>
+
+            <h4 class="heading heading--4">
+              With our app you can view any football stats you want!
+            </h4>
+          </div>
+
+          <div class="box box--flex">
+            <article class="c-card">
+              <div class="c-card__content">
+                <h3 class="c-card__title heading heading--3">
+                  Players
+                </h3>
+                <p class="c-paragraph c-card__text">
+                  All the statistics of the footballers. Here you will find their age, place of birth, performances, goals and much more. Analyze your favorite player!
+                </p>
+                <a href="/players" class="c-button c-button--primary">
+                  All Players
+                </a>
+              </div>
+              <div class="c-card__img-holder">
+                <img class="c-card__img" src="/static/img/card1.png" alt="" />
+              </div>
+            </article>
+
+            <article class="c-card">
+              <div class="c-card__content">
+                <h3 class="c-card__title heading heading--3">
+                  Clubs
+                </h3>
+                <p class="c-paragraph c-card__text">
+                  All football club statistics. Here you will find all the most important information about the football club and their recent matches. Analyze the last matches of your favorite football team!
+                </p>
+                <a href="/clubs" class="c-button c-button--primary">
+                  All Clubs
+                </a>
+              </div>
+
+              <div class="c-card__img-holder">
+                <img class="c-card__img" src="/static/img/card2.png" alt="" />
+              </div>
+            </article>
+
+            <article class="c-card">
+              <div class="c-card__content">
+                <h3 class="c-card__title heading heading--3">
+                  Transfers
+                </h3>
+                <p class="c-paragraph c-card__text">
+                  All football transfers. Here you will find the most expensive, cheapest, most shocking football transfers. Analyze what you think is the most exciting football transfer ever!
+                </p>
+                <a href="/transfers" class="c-button c-button--primary">
+                  All Transfers
+                </a>
+              </div>
+              <div class="c-card__img-holder">
+                <img class="c-card__img" src="/static/img/card3.png" alt="" />
+              </div>
+            </article>
+
+            <article class="c-card">
+              <div class="c-card__content">
+                <h3 class="c-card__title heading heading--3">
+                  National Teams
+                </h3>
+                <p class="c-paragraph c-card__text">
+                  All statistics of national teams in football. Here you will find their place in the Fifa table, average team age, team market value and much more. Analyze your national team!
+                </p>
+                <a href="/national_teams" class="c-button c-button--primary">
+                  All National Teams
+                </a>
+              </div>
+
+              <div class="c-card__img-holder">
+                <img class="c-card__img" src="/static/img/card4.png" alt="" />
+              </div>
+            </article>
+
+            <article class="c-card">
+              <div class="c-card__content">
+                <h3 class="c-card__title heading heading--3">
+                  Games
+                </h3>
+                <p class="c-paragraph c-card__text">
+                  All statistics about football matches. Here you will find the results of the most historic, shocking and iconic matches. Analyze your favourite game!
+                </p>
+                <a href="/games" class="c-button c-button--primary">
+                  All Games
+                </a>
+              </div>
+              <div class="c-card__img-holder">
+                <img class="c-card__img" src="/static/img/card5.png" alt="" />
+              </div>
+            </article>
+            <article class="c-card">
+              <div class="c-card__content">
+                <h3 class="c-card__title heading heading--3">
+                  Appearances
+                </h3>
+                <p class="c-paragraph c-card__text">
+                  All statistics about given performances. Here you will find the most legendary, shocking and incredible performances of footballers. Analyze the performance of your favorite footballer!
+                </p>
+                <a href="/appearances" class="c-button c-button--primary">
+                  All Appearances
+                </a>
+              </div>
+
+              <div class="c-card__img-holder">
+                <img class="c-card__img" src="/static/img/card6.png" alt="" />
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section banner">
+        <div class="container">
+          <div class="c-banner">
+            <h2 class="heading heading--2 c-banner__title">
+              Play in Football Game!
+            </h2>
+            <button class="c-button c-button--primary">Play Now</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="c-footer">
+          <div class="c-footer__box">
+            <a class="c-link" href="#">
+              <div class="c-logo">
+                <img src="/static/img/logo.png" alt="Logo" class="c-logo__img" />
+                <span class="c-logo__text c-logo__text--white">Goalscorer</span>
+              </div>
+            </a>
+            <p class="c-paragraph c-footer__text">
+              © 2026 Goalscorer, all rights reserved
+            </p>
+          </div>
+          <div class="c-footer__box">
+            <div class="c-footer__icons">
+              <a href="https://www.instagram.com/fankick_store/">
+                <img
+                  class="c-footer__icon"
+                  src="/static/img/instagram.svg"
+                  alt="Instagram"
+              /></a>
+              <a href="https://x.com/footballnews893?s=20">
+                <img
+                  class="c-footer__icon"
+                  src="/static/img/twitter.svg"
+                  alt="Twitter"
+                />
+              </a>
+              <a href="https://www.facebook.com/FlashscorePL">
+                <img
+                  class="c-footer__icon"
+                  src="/static/img/facebook.svg"
+                  alt="Facebook"
+              /></a>
+            </div>
+            <ul class="c-list c-list--flex c-list--align-right">
+              <li class="c-list__item c-list__item--small">
+                <a href="#" class="c-link c-link--list c-link--list-right"
+                  >Contact</a
+                >
+              </li>
+              <li class="c-list__item c-list__item--small">
+                <a href="#" class="c-link c-link--list c-link--list-right"
+                  >About us</a
+                >
+              </li>
+              <li class="c-list__item c-list__item--small">
+                <a href="#" class="c-link c-link--list c-link--list-right"
+                  >FAQ</a
+                >
+              </li>
+              <li class="c-list__item c-list__item--small">
+                <a href="#" class="c-link c-link--list c-link--list-right"
+                  >Support</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
